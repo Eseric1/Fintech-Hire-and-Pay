@@ -54,7 +54,7 @@ w3 = Web3(Web3.HTTPProvider("HTTP://127.0.0.1:7545"))
 # 2. Add your mnemonic seed phrase (provided by Ganache) to the starter code’s `SAMPLE.env` file.
 # When the information has been added, rename the file `.env`.
 
-# 3. Import the following functions from the `crypto_wallet.py` file:
+# 3. Import the following functions from the `crypto_wallet.py` file
 # * `generate_account`
 # * `get_balance`
 # * `send_transaction`
@@ -80,7 +80,9 @@ w3 = Web3(Web3.HTTPProvider("HTTP://127.0.0.1:7545"))
 # @TODO:
 # From `crypto_wallet.py import the functions generate_account, get_balance,
 #  and send_transaction
-# YOUR CODE HERE
+from .crypto_wallet import generate_account
+from .crypto_wallet import get_balance
+from .crypto_wallet import send_transaction
 
 ################################################################################
 # KryptoJobs2Go Candidate Information
@@ -156,7 +158,7 @@ st.sidebar.markdown("## Client Account Address and Ethernet Balance in Ether")
 
 # @TODO:
 #  Call the `generate_account` function and save it as the variable `account`
-# YOUR CODE HERE
+account = generate_account()
 
 ##########################################
 
@@ -172,7 +174,7 @@ st.sidebar.write(account.address)
 # @TODO
 # Call `get_balance` function and pass it your account address
 # Write the returned ether balance to the sidebar
-# YOUR CODE HERE
+st.sidebar.write(get_balance(account.address))
 
 ##########################################
 
@@ -206,7 +208,7 @@ st.sidebar.write(candidate_address)
 
 st.sidebar.markdown("## Total Wage in Ether")
 
-################################################################################
+###########
 # Step 2: Sign and Execute a Payment Transaction
 
 # Complete the following steps:
@@ -246,11 +248,11 @@ st.sidebar.markdown("## Total Wage in Ether")
 # - The `wage` value. This will be passed to the `toWei` function to
 # determine the wei value of the payment in the raw transaction.
 
-# * Save the transaction hash that the `send_transaction` function returns
+# Save the transaction hash that the `send_transaction` function returns
 # as a variable named `transaction_hash`, and have it display on the
 # application’s web interface.
 
-##########################################
+########
 # Step 2 - Part 1:
 # * Write the equation that calculates the candidate’s wage. This equation
 # should assess the candidate’s hourly rate from the candidate database
@@ -263,11 +265,11 @@ st.sidebar.markdown("## Total Wage in Ether")
 # Calculate total `wage` for the candidate by multiplying the candidate’s hourly
 # rate from the candidate database (`candidate_database[person][3]`) by the
 # value of the `hours` variable
-# YOUR CODE HERE
+wage = hourly_rate * hours
 
 # @TODO
 # Write the `wage` calculation to the Streamlit sidebar
-# YOUR CODE HERE
+st.sidebar.write(wage)
 
 ##########################################
 # Step 2 - Part 2:
